@@ -1,21 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React  from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { useFonts } from 'expo-font'
 
-export default function App() {
+import NativeStyles from './pages/NativeStyles'
+import NativeAnimations from './pages/NativeAnimations'
+import SpringAnimations from './pages/SpringAnimations'
+
+const Tab = createBottomTabNavigator()
+
+export default function App(props: any) {
+  const [loaded] = useFonts({
+    LongCang: require('./assets/fonts/LongCang-Regular.otf')
+  })
+
+  if (!loaded) {
+    return null
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator >
+        <Tab.Screen name="NativeStyles" component={NativeStyles} />
+        <Tab.Screen name="Native Animations" component={NativeAnimations} />
+        <Tab.Screen name="Spring Animations" component={SpringAnimations} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
