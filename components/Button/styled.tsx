@@ -2,7 +2,7 @@ import React from 'react'
 import { GestureResponderEvent } from 'react-native'
 import styled from 'styled-components/native'
 
-import { light, Theme } from '../../styles/themes'
+import themeDefault, { Theme } from '../../styles/themes'
 
 type PropTypes = {
   children: React.ReactNode,
@@ -12,22 +12,22 @@ type PropTypes = {
 
 const Container = styled.TouchableOpacity`
   padding: 10px 20px;
-  background-color: ${(props: { theme: Theme }) => props.theme.primary};
+  background-color: ${({ theme }: { theme: Theme }) => theme.primary};
   align-items: center;
 `
 
 Container.defaultProps = {
-  theme: light,
+  theme: themeDefault,
 }
 
 const Text = styled.Text`
   font-size: 18px;
   font-weight: 600;
-  color: ${(props: { theme: Theme }) => props.theme.contrast};
+  color: ${({ theme }: { theme: Theme }) => theme.contrast};
 `
 
 Text.defaultProps = {
-  theme: light,
+  theme: themeDefault,
 }
 
 const Button = ({ children, theme, onPress }: PropTypes ) => (

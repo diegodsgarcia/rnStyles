@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
+import themeDefault from '../../styles/themes'
 
 type PropsType = {
   children: React.ReactNode
@@ -15,9 +16,9 @@ const styles = StyleSheet.create({
   container: {
     margin: 20,
     padding: 15,
-    backgroundColor: '#ffffff',
+    backgroundColor: themeDefault.cardBackground,
     elevation: 1,
-    shadowColor: '#000',
+    shadowColor: themeDefault.shadowColor,
     shadowOpacity: 1,
     shadowOffset: {
       width: 1,

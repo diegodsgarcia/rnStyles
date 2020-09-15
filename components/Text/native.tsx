@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, StyleSheet, TextStyle } from 'react-native'
+import themeDefault from '../../styles/themes'
 
 type PropTypes = {
   children: React.ReactNode,
@@ -14,6 +15,7 @@ const styles = StyleSheet.create({
   text: {
     marginVertical: 10,
     fontSize: 14,
+    color: themeDefault.text,
   }
 })
 
