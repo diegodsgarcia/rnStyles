@@ -1,31 +1,24 @@
 import React  from 'react'
 import { NavigationContainer } from '@react-navigation/native'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { useFonts } from 'expo-font'
+import { createDrawerNavigator } from '@react-navigation/drawer'
 
-import NativeStyles from './pages/NativeStyles'
-import NativeAnimations from './pages/NativeAnimations'
-import SpringAnimations from './pages/SpringAnimations'
+import NativeStylesScreen from './screens/NativeStyles'
+import NativeAnimationsScreen from './screens/NativeAnimations'
+import SpringAnimationsScreen from './screens/SpringAnimations'
 
-const Tab = createBottomTabNavigator()
+const Drawer = createDrawerNavigator()
 
-export default function App(props: any) {
-  const [loaded] = useFonts({
-    LongCang: require('./assets/fonts/LongCang-Regular.otf')
-  })
-
-  if (!loaded) {
-    return null
-  }
-
+export default function App() {
   return (
+    <>
     <NavigationContainer>
-      <Tab.Navigator >
-        <Tab.Screen name="NativeStyles" component={NativeStyles} />
-        <Tab.Screen name="Native Animations" component={NativeAnimations} />
-        <Tab.Screen name="Spring Animations" component={SpringAnimations} />
-      </Tab.Navigator>
+      <Drawer.Navigator>
+        <Drawer.Screen name="NativeStyles" component={NativeStylesScreen}></Drawer.Screen>
+        <Drawer.Screen name="Native Animations" component={NativeAnimationsScreen}></Drawer.Screen>
+        <Drawer.Screen name="Spring Animations" component={SpringAnimationsScreen}></Drawer.Screen>
+      </Drawer.Navigator>
     </NavigationContainer>
+    </>
   );
 }
 

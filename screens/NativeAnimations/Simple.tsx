@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Animated, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { Animated, StyleSheet, View } from 'react-native'
+import { StyledButton } from '../../components/Button'
+import  ReactSvg from '../../images/react.svg'
 
-export default function NativeAnimations() {
+function Simple() {
   const animatedValue = useRef(new Animated.Value(0)).current
   const spin = animatedValue.interpolate({
     inputRange: [0, 1],
@@ -30,14 +32,17 @@ export default function NativeAnimations() {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={onClick} style={styles.button}>
-        <Text style={styles.text}>Simple</Text>
-      </TouchableOpacity>
+      <StyledButton onPress={onClick}>
+        Simple
+      </StyledButton>
       <View style={styles.examples}>
         <Animated.View style={ { ...styles.box, opacity: animatedValue }}/>
         <Animated.View style={ { ...styles.box, transform: [{ rotate: spin }] }}/>
         <Animated.View style={ { ...styles.box, backgroundColor: color }}/>
       </View>
+      <Animated.View style={ { transform: [{ rotate: spin }] }}>
+        <ReactSvg width={250} height={250} />
+      </Animated.View>
     </View>
   );
 }
@@ -50,23 +55,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   examples: {
-    marginBottom: 10,
-    marginTop: 10,
-    flexDirection: 'row'
-  },
-  text: {
-    color: '#ffffff'
-  },
-  button: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 200,
-    height: 50,
-    backgroundColor: '#000000'
+    width: '100%',
+    marginVertical: 10,
+    marginHorizontal: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   box: {
-    width: 50,
-    height: 50,
+    width: 80,
+    height: 80,
     backgroundColor: 'red',
   }
-});
+})
+
+export default Simple

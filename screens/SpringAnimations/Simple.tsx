@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { animated, useSpring } from 'react-spring/native'
+
+import { StyledButton } from '../../components/Button'
 
 const AnimatedView = animated(View)
 
-const SpringAnimations = () => {
+function Simple() {
   const [toggle, setToggle] = useState(false)
   const [props, set] = useSpring(() => ({
     opacity: 0,
@@ -22,9 +24,7 @@ const SpringAnimations = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={onPress} style={styles.button}>
-        <Text style={styles.text}>test</Text>
-      </TouchableOpacity>
+      <StyledButton onPress={onPress}>test</StyledButton>
       <AnimatedView style={{ ...styles.box, ...props, transform: [ { rotate: props.rotateX }] }} />
     </View>
   )
@@ -56,4 +56,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default SpringAnimations
+export default Simple
