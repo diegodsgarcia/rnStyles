@@ -11,7 +11,7 @@ function Simple() {
   })
   const color = animatedValue.interpolate({
     inputRange: [0, 1],
-    outputRange:['rgb(90,210,244)' , 'rgb(224,82,99)']
+    outputRange:['blue' , 'red']
   })
   const [toggle, setToggle] = useState(false)
 
@@ -26,24 +26,24 @@ function Simple() {
     ).start()
   }, [toggle])
 
-  const onClick = () => {
-    setToggle(!toggle)
-  }
+  const onPress = () => setToggle(!toggle)
 
   return (
-    <View style={styles.container}>
-      <StyledButton onPress={onClick}>
-        Simple
+    <>
+      <StyledButton onPress={onPress}>
+        Press here!
       </StyledButton>
-      <View style={styles.examples}>
-        <Animated.View style={ { ...styles.box, opacity: animatedValue }}/>
-        <Animated.View style={ { ...styles.box, transform: [{ rotate: spin }] }}/>
-        <Animated.View style={ { ...styles.box, backgroundColor: color }}/>
+      <View style={styles.container}>
+        <View style={styles.examples}>
+          <Animated.View style={ { ...styles.box, opacity: animatedValue }}/>
+          <Animated.View style={ { ...styles.box, transform: [{ rotate: spin }] }}/>
+          <Animated.View style={ { ...styles.box, backgroundColor: color }}/>
+        </View>
+        <Animated.View style={ { transform: [{ rotate: spin }] }}>
+          <ReactSvg width={250} height={250} />
+        </Animated.View>
       </View>
-      <Animated.View style={ { transform: [{ rotate: spin }] }}>
-        <ReactSvg width={250} height={250} />
-      </Animated.View>
-    </View>
+    </>
   );
 }
 
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 10,
   },
   examples: {
     width: '100%',
