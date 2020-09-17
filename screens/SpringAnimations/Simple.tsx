@@ -31,8 +31,8 @@ function Simple() {
       <View style={styles.container}>
         <View style={styles.examples}>
             <AnimatedView style={ { ...styles.box, opacity: props.opacity }}/>
-            <AnimatedView style={ { ...styles.box, transform: [ { rotate: props.rotate }] } } />
-            <AnimatedView style={ { ...styles.box, backgroundColor: props.backgroundColor }}/>
+            <AnimatedView style={ { ...styles.box, transform: [ { rotate: props.rotate }] }} />
+            <AnimatedView style={ { ...styles.box, backgroundColor: props.backgroundColor }} />
         </View>
         <AnimatedView style={{ transform: [ { rotate: props.rotate }] }}>
           <ReactSvg width={250} height={250} />
