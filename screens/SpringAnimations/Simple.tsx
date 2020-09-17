@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { View, StyleSheet } from 'react-native'
 import { animated, useSpring } from 'react-spring/native'
 
+import  ReactSvg from '../../images/react.svg'
 import { StyledButton } from '../../components/Button'
 
 const AnimatedView = animated(View)
@@ -10,49 +11,56 @@ function Simple() {
   const [toggle, setToggle] = useState(false)
   const [props, set] = useSpring(() => ({
     opacity: 0,
-    rotateX: '0deg',
+    rotate: '0deg',
+    backgroundColor: 'red',
   }))
 
   useEffect(() => {
     set({
       opacity: toggle ? 1 : 0,
-      rotateX: toggle ? '360deg' : '0deg',
+      rotate: toggle ? '360deg' : '0deg',
+      backgroundColor: toggle ? 'blue' : 'red',
     })
   }, [toggle])
 
   const onPress = () => setToggle(!toggle)
 
   return (
-    <View style={styles.container}>
-      <StyledButton onPress={onPress}>test</StyledButton>
-      <AnimatedView style={{ ...styles.box, ...props, transform: [ { rotate: props.rotateX }] }} />
-    </View>
+    <>
+      <StyledButton onPress={onPress}>Press here!</StyledButton>
+      <View style={styles.container}>
+        <View style={styles.examples}>
+            <AnimatedView style={ { ...styles.box, opacity: props.opacity }}/>
+            <AnimatedView style={ { ...styles.box, transform: [ { rotate: props.rotate }] } } />
+            <AnimatedView style={ { ...styles.box, backgroundColor: props.backgroundColor }}/>
+        </View>
+        <AnimatedView style={{ transform: [ { rotate: props.rotate }] }}>
+          <ReactSvg width={250} height={250} />
+        </AnimatedView>
+      </View>
+    </>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    justifyContent: 'center',
     flex: 1,
-  },
-  button: {
-    width: 300,
-    justifyContent: 'center',
+    backgroundColor: '#fff',
     alignItems: 'center',
-    backgroundColor: '#000000',
-    height: 40
+    justifyContent: 'center',
+    padding: 10,
   },
-  text: {
-    color: '#ffffff'
+  examples: {
+    width: '100%',
+    marginVertical: 10,
+    marginHorizontal: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   box: {
-    display: 'flex',
-    marginTop: 10,
-    marginBottom: 10,
-    width: 100,
-    height: 100,
-    backgroundColor: '#ff0000',
+    width: 80,
+    height: 80,
+    backgroundColor: 'red',
   }
 })
 
