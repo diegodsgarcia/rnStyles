@@ -3,7 +3,8 @@ import styled, { css } from 'styled-components/native'
 import themeDefault, { Theme } from '../../styles/themes'
 
 type PropsType = {
-  children: React.ReactNode
+  children: React.ReactNode,
+  theme?: Theme,
 }
 
 const Container = styled.View`
@@ -19,8 +20,8 @@ Container.defaultProps = {
   theme: themeDefault
 }
 
-const StyledCard = ({ children }: PropsType) => (
-  <Container>
+const StyledCard = ({ children, theme }: PropsType) => (
+  <Container theme={theme}>
     {children}
   </Container>
 )
