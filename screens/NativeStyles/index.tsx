@@ -1,7 +1,7 @@
 import React from 'react'
 import { ScrollView, StyleSheet } from 'react-native'
 
-import themeDefault from '../../styles/themes'
+import theme from '../../styles/theme'
 
 import { NativeCard, StyledCard } from '../../components/Card'
 import { NativeText, StyledText } from '../../components/Text'
@@ -42,11 +42,10 @@ function NativeStyles() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: themeDefault.background,
+    backgroundColor: theme.background,
   },
   text: {
-    marginTop: 20,
-    marginBottom: 20,
+    marginVertical: 20,
     fontSize: 32,
     fontFamily: 'LongCang-Regular'
   }

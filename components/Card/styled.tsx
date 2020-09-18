@@ -1,14 +1,12 @@
 import React from 'react'
 import styled, { css } from 'styled-components/native'
-import themeDefault, { Theme } from '../../styles/themes'
 
 type PropsType = {
   children: React.ReactNode,
-  theme?: Theme,
 }
 
 const Container = styled.View`
-  ${({ theme }: { theme: Theme }) => css`
+  ${({ theme }) => css`
     margin: 20px;
     padding: 15px;
     background-color: ${theme.cardBackground};
@@ -16,12 +14,8 @@ const Container = styled.View`
   `}
 `
 
-Container.defaultProps = {
-  theme: themeDefault
-}
-
-const StyledCard = ({ children, theme }: PropsType) => (
-  <Container theme={theme}>
+const StyledCard = ({ children }: PropsType) => (
+  <Container>
     {children}
   </Container>
 )

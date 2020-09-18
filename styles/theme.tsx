@@ -1,14 +1,4 @@
-export type Theme = {
-  primary?: string,
-  text?: string,
-  background?: string,
-  border?: string,
-  contrast?: string,
-  shadowColor?: string,
-  cardBackground?: string,
-}
-
-const light: Theme = {
+const light = {
   primary: '#7b1fa2',
   text: '#333333',
   background: '#eeeeee',
@@ -18,7 +8,7 @@ const light: Theme = {
   cardBackground: '#ffffff'
 }
 
-const dark: Theme = {
+const dark = {
   primary: '#4a0072',
   text: '#ffffff',
   background: '#000000',

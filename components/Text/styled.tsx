@@ -1,14 +1,20 @@
+import React from 'react'
+import { TextStyle } from 'react-native'
 import styled from 'styled-components/native'
-import themeDefault, { Theme } from '../../styles/themes'
 
-const StyledText = styled.Text`
+type PropsType = {
+  children: React.ReactNode
+  style?: TextStyle
+}
+
+const Text = styled.Text`
   margin: 10px 0;
   font-size: 14px;
-  color: ${({ theme }: { theme: Theme }) => theme.text};
+  color: ${({ theme }) => theme.text};
 `
 
-StyledText.defaultProps = {
-  theme: themeDefault
-}
+const StyledText = ({ children, style }: PropsType) => (
+  <Text style={style}>{children}</Text>
+)
 
 export default StyledText

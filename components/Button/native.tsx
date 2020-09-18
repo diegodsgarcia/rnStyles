@@ -1,6 +1,6 @@
 import React from 'react'
 import { TouchableOpacity, Text, StyleSheet, GestureResponderEvent } from 'react-native'
-import themeDefault, { Theme } from '../../styles/themes'
+import theme from '../../styles/theme'
 
 type PropTypes = {
   children: React.ReactNode,
@@ -19,12 +19,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 10,
     paddingHorizontal: 20,
-    backgroundColor: themeDefault.primary,
+    backgroundColor: theme.primary,
   },
   text: {
     fontSize: 18,
     fontWeight: '600',
-    color: themeDefault.contrast
+    color: theme.contrast
   }
 })
 

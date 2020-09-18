@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import themeDefault from '../../styles/themes'
+import themeDefault from '../../styles/theme'
 
 type PropsType = {
   children: React.ReactNode

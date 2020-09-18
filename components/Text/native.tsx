@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, StyleSheet, TextStyle } from 'react-native'
-import themeDefault from '../../styles/themes'
+import themeDefault from '../../styles/theme'
 
 type PropTypes = {
   children: React.ReactNode,
