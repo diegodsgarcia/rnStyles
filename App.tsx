@@ -1,4 +1,5 @@
 import React  from 'react'
+import { SafeAreaView, StyleSheet } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 
@@ -13,15 +14,23 @@ const Drawer = createDrawerNavigator()
 
 export default function App() {
   return (
-    <ThemeProvider theme={theme}>
-    <NavigationContainer>
-      <Drawer.Navigator>
-        <Drawer.Screen name="NativeStyles" component={NativeStylesScreen}></Drawer.Screen>
-        <Drawer.Screen name="Native Animations" component={NativeAnimationsScreen}></Drawer.Screen>
-        <Drawer.Screen name="Spring Animations" component={SpringAnimationsScreen}></Drawer.Screen>
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <SafeAreaView style={styles.container}>
+      <ThemeProvider theme={theme}>
+      <NavigationContainer>
+        <Drawer.Navigator>
+          <Drawer.Screen name="NativeStyles" component={NativeStylesScreen}></Drawer.Screen>
+          <Drawer.Screen name="Native Animations" component={NativeAnimationsScreen}></Drawer.Screen>
+          <Drawer.Screen name="Spring Animations" component={SpringAnimationsScreen}></Drawer.Screen>
+        </Drawer.Navigator>
+      </NavigationContainer>
     </ThemeProvider>
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
