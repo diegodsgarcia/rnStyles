@@ -59,6 +59,39 @@ Não é possível utilizar as propriedades shortHand como  por exemplo `margin: 
 
 No React Native não existe a árvore DOM, com isso várias APIs nativas como keyframes e media são descartadas
 
+### Como funciona o stylesheet?
+
+No Stylesheet do React Native todos os componentes possuí a prop style e todas regras de estilo são definidas em um objeto.
+
+```jsx
+import React from 'react'
+import { View, Text, StyleSheet } from 'react-native'
+
+const MinhaScreen = () => (
+  <View style={styles.container}>
+    <Text style={styles.text}>
+      Hello world!
+    </Text>
+  </View>
+)
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+    padding: 10
+  },
+  text: {
+    fontSize: 32,
+    textTransform: 'uppercase',
+    color: 'green'
+  }
+})
+
+export default MinhaScreen
+```
+
 ### **Como funciona o layout**
 
 - **Layout Props**
@@ -88,7 +121,9 @@ No React Native não existe a árvore DOM, com isso várias APIs nativas como ke
 Para exportar fontes customizadas no React Native utilizando o Expo você pode carregar ela de forma assíncrona em qualquer lugar (tanto server / local).
 
 ```jsx
-function App() {
+import { useFonts } from 'expo-font'
+
+export function App() {
   const [loaded] = useFonts({
     Montserrat: require('./assets/fonts/Montserrat.ttf'),
   });
@@ -97,7 +132,7 @@ function App() {
     return null;
   }
 
-  return <Text style={{ fontFamily: 'Montserrat' }} />;
+  return <Text style={{ fontFamily: 'Montserrat' }} />
 }
 ```
 
@@ -150,6 +185,8 @@ export default light
 ### Animações
 
 O React Native nos fornece uma API para trabalhar animações
+
+![POC%20Styles%20a56c6d5cfedc44cf84c5ecb9d44ff5ec/Untitled.png](POC%20Styles%20a56c6d5cfedc44cf84c5ecb9d44ff5ec/Untitled.png)
 
 **Animação de opacity simples:**
 
@@ -204,14 +241,14 @@ const styles = StyleSheet.create({
 
 Com o styled components é possível utilizar a mesma sintaxe web desenvolver as regras visuais do Stylesheet, além de trazer outras vantagens gigantes como props de pra criação de temas.
 
-### Repo de exemplos
-
-[https://github.com/diegodsgarcia/rnStyles](https://github.com/diegodsgarcia/rnStyles)
-
 ### Bibliografias
+
+[https://reactnative.dev/docs/intro-react-native-components](https://reactnative.dev/docs/intro-react-native-components)
 
 [https://reactnative.dev/docs/layout-props](https://reactnative.dev/docs/layout-props)
 
 [https://docs.expo.io/guides/using-custom-fonts/](https://docs.expo.io/guides/using-custom-fonts/)
 
 [https://github.com/react-native-community/react-native-svg](https://github.com/react-native-community/react-native-svg)
+
+[https://reactnative.dev/blog/2017/02/14/using-native-driver-for-animated](https://reactnative.dev/blog/2017/02/14/using-native-driver-for-animated)
