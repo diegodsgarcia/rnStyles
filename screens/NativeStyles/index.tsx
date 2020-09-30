@@ -6,6 +6,7 @@ import theme from '../../styles/theme'
 import { NativeCard, StyledCard } from '../../components/Card'
 import { NativeText, StyledText } from '../../components/Text'
 import { StyledButton }  from '../../components/Button'
+import { StyledImage } from '../../components/Image'
 
 function NativeStyles() {
   return (
@@ -34,6 +35,10 @@ function NativeStyles() {
       </StyledText>
       <StyledText style={styles.text}>Font Family Test</StyledText>
     </StyledCard>
+    <StyledCard>
+      <NativeText style={styles.text}>Some Image</NativeText>
+      <StyledImage source={require('../../images/meme.jpg')}/>
+    </StyledCard>
     <StyledButton>Test 123</StyledButton>
   </ScrollView>
   )
@@ -48,7 +53,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     fontSize: 32,
     fontFamily: 'LongCang-Regular'
-  }
+  },
 })
 
 export default NativeStyles
