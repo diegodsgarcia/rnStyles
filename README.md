@@ -204,7 +204,7 @@ export default light
 
 O React Native nos fornece uma API para trabalhar animações
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a8727ae5-b6be-4a4a-a414-85e928a48b78/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a8727ae5-b6be-4a4a-a414-85e928a48b78/Untitled.png)
+![React Animações](https://user-images.githubusercontent.com/11414390/96268702-bffa4a00-0f9f-11eb-85b5-cb96434f8bd6.png)
 
 **Animação de opacity simples:**
 
