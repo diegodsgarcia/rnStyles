@@ -1,4 +1,4 @@
-# POC Styles
+# Stylesheet no React Native
 
 ### DIFERENÇAS WEB X REACT NATIVE
 
@@ -45,7 +45,7 @@ Uma das principais diferenças de comportamento de estilos entre web e react é 
 
 **Unidade de medidas**
 
-No mundo mobile podemos trabalhar apenas com as unidades de medidas em px e %
+No React Native  podemos trabalhar apenas com as unidades de medidas representada pela densidade de pixel, com isso as unidades só trabalham direto com um valor inteiro ou um valor em porcentagem.
 
 **Não existe seletores e efeito cascata**
 
@@ -138,6 +138,24 @@ export function App() {
 
 Utilizando apenas o RN você deve adicionar as fontes na pasta `assets/fonts` e utilizar o comando `npx react-native link` . Essas fontes serão carregadas em processo de build
 
+### Imagens
+
+As imagens no react native são tratadas da mesma forma com JS Modules:
+
+```jsx
+<Image source={require('./my-icon.png')} />
+```
+
+Caso você desejar mostrar uma imagem apenas em algum device especifico, você pode renomear ela como `my-icon.ios.png` ou `my-icon.android.png` . Você também pode utilizar os sufixos `2@x` e `3@x` para mostrar a imagem em diferentes tamanhos de tela
+
+Também é possível tratar imagens direto de requisições
+
+**DETALHES IMPORTANTES**: É recomendado a imagem sempre possuír uma altura e largura fixada no componente para o melhor visualização e estar em um servidor https por causa das políticas de segurança da Apple
+
+```jsx
+<Image source={{uri: 'https://reactjs.org/logo-og.png'}} style={{width: 400, height: 400}} />
+```
+
 ### SVG
 
 Para trabalhar com SVG's devemos instalar o pacote r[eact-native-svg](https://github.com/react-native-community/react-native-svg), porém para trabalharmos com SVG transformando em componentes direto de um arquivo devemos também utilizar o pacote [react-native-svg-transformer](https://github.com/kristerkari/react-native-svg-transformer).
@@ -186,7 +204,7 @@ export default light
 
 O React Native nos fornece uma API para trabalhar animações
 
-![POC%20Styles%20a56c6d5cfedc44cf84c5ecb9d44ff5ec/Untitled.png](POC%20Styles%20a56c6d5cfedc44cf84c5ecb9d44ff5ec/Untitled.png)
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a8727ae5-b6be-4a4a-a414-85e928a48b78/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a8727ae5-b6be-4a4a-a414-85e928a48b78/Untitled.png)
 
 **Animação de opacity simples:**
 
@@ -245,7 +263,13 @@ Com o styled components é possível utilizar a mesma sintaxe web desenvolver as
 
 [https://reactnative.dev/docs/intro-react-native-components](https://reactnative.dev/docs/intro-react-native-components)
 
+[https://reactnative.dev/docs/style](https://reactnative.dev/docs/style)
+
 [https://reactnative.dev/docs/layout-props](https://reactnative.dev/docs/layout-props)
+
+[https://reactnative.dev/docs/images](https://reactnative.dev/docs/images)
+
+[https://reactnative.dev/docs/height-and-width](https://reactnative.dev/docs/height-and-width)
 
 [https://docs.expo.io/guides/using-custom-fonts/](https://docs.expo.io/guides/using-custom-fonts/)
 
